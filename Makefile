@@ -16,13 +16,10 @@
 GPU=1
 CUDNN=1
 OPENCV=1
-DEBUG=0
+DEBUG=1
 CUDA_MEM_DEBUG=0
 
-ARCH= -gencode arch=compute_30,code=sm_30 \
-      -gencode arch=compute_35,code=sm_35 \
-      -gencode arch=compute_50,code=[sm_50,compute_50] \
-      -gencode arch=compute_52,code=[sm_52,compute_52]
+ARCH= -gencode arch=compute_50,code=[sm_50,compute_50] 
 
 # This is what I use, uncomment if you know your arch and want to specify
 # ARCH=  -gencode arch=compute_52,code=compute_52
@@ -67,9 +64,9 @@ endif
 LDFLAGS += -L./3rdparty
 
 ifeq ($(GPU), 1) 
-COMMON+= -DGPU -I/usr/local/cuda/include/
+COMMON+= -DGPU -I/opt/cuda/include/
 CFLAGS+= -DGPU
-LDFLAGS+= -L/usr/local/cuda/lib64 -lcuda -lcudart -lcublas -lcurand
+LDFLAGS+= -L/opt/cuda/lib64 -lcuda -lcudart -lcublas -lcurand
 endif
 
 ifeq ($(CUDNN), 1) 
