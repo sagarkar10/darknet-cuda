@@ -1,3 +1,6 @@
+Project from darknet project and ![prabindh's work](https://github.com/prabindh/darknet)
+
+
 ![Darknet Logo](https://github.com/prabindh/darknet/blob/master/arapaho/darknetcpplogo.png)
 
 # Darknet-cpp
