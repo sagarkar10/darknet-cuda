@@ -1,8 +1,8 @@
 classes= 20
-train  = /run/media/sagarkar10/sdrive/internship/ml/ink/darknet/train.txt
-valid  = /run/media/sagarkar10/sdrive/internship/ml/ink/darknet/2007_test.txt
-#train  = /home/interns/darknet-sagar/darknet-cuda/train.txt
-#valid  = /home/interns/darknet-sagar/darknet-cuda/2007_test.txt
+#train  = /run/media/sagarkar10/sdrive/internship/ml/ink/darknet/train.txt
+#valid  = /run/media/sagarkar10/sdrive/internship/ml/ink/darknet/2007_test.txt
+train  = /home/interns/darknet-sagar/darknet-cuda/train.txt
+valid  = /home/interns/darknet-sagar/darknet-cuda/2007_test.txt
 names = data/voc.names
 backup = backup
 

@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 /home/interns/darknet-sagar/darknet-cuda/VOCdevkit/VOC2007/JPEGImages/000012.jpg
 /home/interns/darknet-sagar/darknet-cuda/VOCdevkit/VOC2007/JPEGImages/000017.jpg
 /home/interns/darknet-sagar/darknet-cuda/VOCdevkit/VOC2007/JPEGImages/000023.jpg
@@ -16551,4 +16549,3 @@
 /home/interns/darknet-sagar/darknet-cuda/VOCdevkit/VOC2012/JPEGImages/2011_003269.jpg
 /home/interns/darknet-sagar/darknet-cuda/VOCdevkit/VOC2012/JPEGImages/2011_003271.jpg
 /home/interns/darknet-sagar/darknet-cuda/VOCdevkit/VOC2012/JPEGImages/2011_003275.jpg
->>>>>>> ce64f27ae54d8647c9a75be836ffabbd5eb4df68
