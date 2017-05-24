@@ -4,6 +4,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
+extern "C"{
+#include "mkl.h"
+}
+//cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, 
+  //              m, n, k, alpha, A, lda=k, B,ldb= n, beta, C,ldc=n);
 
 void gemm_bin(int M, int N, int K, float ALPHA, 
         char  *A, int lda, 
@@ -68,6 +73,8 @@ void gemm(int TA, int TB, int M, int N, int K, float ALPHA,
         float BETA,
         float *C, int ldc)
 {
+    //cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, 
+   //             M, N, K, ALPHA, A, lda, B, ldb, BETA, C,ldc);
     gemm_cpu( TA,  TB,  M, N, K, ALPHA,A,lda, B, ldb,BETA,C,ldc);
 }
 
@@ -145,20 +152,26 @@ void gemm_cpu(int TA, int TB, int M, int N, int K, float ALPHA,
         float *C, int ldc)
 {
     //printf("cpu: %d %d %d %d %d %f %d %d %f %d\n",TA, TB, M, N, K, ALPHA, lda, ldb, BETA, ldc);
-    int i, j;
-    for(i = 0; i < M; ++i){
-        for(j = 0; j < N; ++j){
-            C[i*ldc + j] *= BETA;
-        }
-    }
+   // int i, j;
+   // for(i = 0; i < M; ++i){
+     //   for(j = 0; j < N; ++j){
+      //      C[i*ldc + j] *= BETA;
+       // }
+   // }
     if(!TA && !TB)
-        gemm_nn(M, N, K, ALPHA,A,lda, B, ldb,C,ldc);
+    cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, M, N, K, ALPHA, A, lda, B, ldb, BETA, C,ldc);
+
+       // gemm_nn(M, N, K, ALPHA,A,lda, B, ldb,C,ldc);
     else if(TA && !TB)
-        gemm_tn(M, N, K, ALPHA,A,lda, B, ldb,C,ldc);
+    cblas_sgemm(CblasRowMajor, CblasTrans, CblasNoTrans, M, N, K, ALPHA, A, lda, B, ldb, BETA, C,ldc);
+ 
+       // gemm_tn(M, N, K, ALPHA,A,lda, B, ldb,C,ldc);
     else if(!TA && TB)
-        gemm_nt(M, N, K, ALPHA,A,lda, B, ldb,C,ldc);
+     cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasTrans, M, N, K, ALPHA, A, lda, B, ldb, BETA, C,ldc);
+       // gemm_nt(M, N, K, ALPHA,A,lda, B, ldb,C,ldc);
     else
-        gemm_tt(M, N, K, ALPHA,A,lda, B, ldb,C,ldc);
+     cblas_sgemm(CblasRowMajor, CblasTrans, CblasTrans, M, N, K, ALPHA, A, lda, B, ldb, BETA, C,ldc);
+        //gemm_tt(M, N, K, ALPHA,A,lda, B, ldb,C,ldc);
 }
 
 #ifdef GPU

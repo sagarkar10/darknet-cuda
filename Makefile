@@ -16,7 +16,7 @@
 GPU=1
 CUDNN=1
 OPENCV=1
-DEBUG=1
+DEBUG=0
 CUDA_MEM_DEBUG=0
 
 ARCH= -gencode arch=compute_50,code=[sm_50,compute_50] 
@@ -41,8 +41,8 @@ CFLAGS_CPP=-Wno-write-strings -std=c++0x
 
 NVCC=nvcc
 
-OPTS=-Ofast
-LDFLAGS= -lm -pthread 
+OPTS=-O3 -march=native
+LDFLAGS=-lm -pthread -lmkl_intel_ilp64 -lmkl_sequential -lmkl_core
 COMMON= 
 CFLAGS=-Wall -Wfatal-errors 
 

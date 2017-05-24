@@ -17,7 +17,13 @@ submission/
 cfg/
 darknet
 .fuse*
-
+backup/
+results/
+*.weights
+.*
+oprof*
+VOCdevkit/
+VOC-Data-Set/
 # OS Generated #
 .DS_Store*
 ehthumbs.db
