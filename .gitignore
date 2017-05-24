@@ -9,15 +9,18 @@ mnist/
 data/
 caffe/
 grasp/
+backup/
 images/
 opencv/
 convnet/
+results/
 decaf/
 submission/
 cfg/
 darknet
 .fuse*
-
+VOCdevkit/
+VOC-Data-Set/
 # OS Generated #
 .DS_Store*
 ehthumbs.db
