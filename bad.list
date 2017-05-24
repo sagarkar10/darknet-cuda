@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ../vedio.mkv
 /run/media/sagarkar10/sdrive/internship/ml/ink/sagar/darknet-cuda/VOCdevkit/VOC2007/JPEGImages/000001.jpg
 /run/media/sagarkar10/sdrive/internship/ml/ink/sagar/darknet-cuda/VOCdevkit/VOC2007/JPEGImages/000003.jpg
@@ -251,3 +252,22 @@
 /run/media/sagarkar10/sdrive/internship/ml/ink/darknet/VOCdevkit/VOC2007/JPEGImages/000038.jpg
 /run/media/sagarkar10/sdrive/internship/ml/ink/darknet/VOCdevkit/VOC2007/JPEGImages/000029.jpg
 /run/media/sagarkar10/sdrive/internship/ml/ink/darknet/VOCdevkit/VOC2007/JPEGImages/000031.jpg
+=======
+/home/interns/darknet-sagar/darknet-cuda/miniVOCdevkit/VOC2012/JPEGImages/2010_000665.jpg
+/home/interns/darknet-sagar/darknet-cuda/miniVOCdevkit/VOC2012/JPEGImages/2008_004876.jpg
+/home/interns/darknet-sagar/darknet-cuda/miniVOCdevkit/VOC2007/JPEGImages/005061.jpg
+/home/interns/darknet-sagar/darknet-cuda/miniVOCdevkit/VOC2012/JPEGImages/2008_006614.jpg
+/home/interns/darknet-sagar/darknet-cuda/miniVOCdevkit/VOC2007/JPEGImages/009560.jpg
+/home/interns/darknet-sagar/darknet-cuda/miniVOCdevkit/VOC2007/JPEGImages/008086.jpg
+/home/interns/darknet-sagar/darknet-cuda/miniVOCdevkit/VOC2012/JPEGImages/2011_001974.jpg
+/home/interns/darknet-sagar/darknet-cuda/miniVOCdevkit/VOC2012/JPEGImages/2010_001025.jpg
+/home/interns/darknet-sagar/darknet-cuda/miniVOCdevkit/VOC2012/JPEGImages/2010_002002.jpg
+/home/interns/darknet-sagar/darknet-cuda/miniVOCdevkit/VOC2012/JPEGImages/2009_005153.jpg
+/home/interns/darknet-sagar/darknet-cuda/miniVOCdevkit/VOC2012/JPEGImages/2008_001408.jpg
+/home/interns/darknet-sagar/darknet-cuda/miniVOCdevkit/VOC2012/JPEGImages/2008_002422.jpg
+/home/interns/darknet-sagar/darknet-cuda/miniVOCdevkit/VOC2012/JPEGImages/2008_001663.jpg
+/home/interns/darknet-sagar/darknet-cuda/miniVOCdevkit/VOC2007/JPEGImages/009532.jpg
+/home/interns/darknet-sagar/darknet-cuda/miniVOCdevkit/VOC2012/JPEGImages/2010_002094.jpg
+/home/interns/darknet-sagar/darknet-cuda/miniVOCdevkit/VOC2012/JPEGImages/2010_005764.jpg
+/home/interns/darknet-sagar/darknet-cuda/miniVOCdevkit/VOC2012/JPEGImages/2010_005840.jpg
+>>>>>>> ce64f27ae54d8647c9a75be836ffabbd5eb4df68
