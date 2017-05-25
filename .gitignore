@@ -21,7 +21,8 @@ darknet
 darknet-cpp
 .fuse*
 *.weights
-.*
+.cproject
+.settings*
 oprof*
 VOCdevkit/
 VOC-Data-Set/

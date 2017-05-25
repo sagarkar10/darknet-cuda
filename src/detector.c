@@ -220,8 +220,7 @@ void print_detector_detections(FILE **fps, char *id, box *boxes, float **probs, 
         if (ymax > h) ymax = h;
 
         for(j = 0; j < classes; ++j){
-            if (probs[i][j]) fprintf(fps[j], "%s %f %f %f %f %f\n", id, probs[i][j],
-                    xmin, ymin, xmax, ymax);
+            if (probs[i][j]) fprintf(fps[j], "%s %f %f %f %f %f\n", id, probs[i][j], xmin, ymin, xmax, ymax);
         }
     }
 }
@@ -243,9 +242,7 @@ void print_imagenet_detections(FILE *fp, int id, box *boxes, float **probs, int 
         for(j = 0; j < classes; ++j){
 
             int class1 = j;
-            if (probs[i][class1]) fprintf(fp, "%d %d %f %f %f %f %f\n", id, j+1, probs[i][class1],
-
-                    xmin, ymin, xmax, ymax);
+            if (probs[i][class1]) fprintf(fp, "%d %d %f %f %f %f %f\n", id, j+1, probs[i][class1], xmin, ymin, xmax, ymax);
         }
     }
 }

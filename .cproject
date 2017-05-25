@@ -27,7 +27,6 @@
 							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.base.437204731" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.base">
 								<option id="gnu.cpp.compiler.option.include.paths.1027823438" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="/usr/local/lib"/>
-									<listOptionValue builtIn="false" value="/opt/intel/compilers_and_libraries/linux/mkl/include"/>
 									<listOptionValue builtIn="false" value="/opt/intel/mkl/include"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1014334014" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
@@ -43,11 +42,6 @@
 							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.base.432833866" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.base">
 								<option id="gnu.cpp.link.option.paths.1522728715" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
 									<listOptionValue builtIn="false" value="/opt/intel/mkl/lib/intel64_lin"/>
-									<listOptionValue builtIn="false" value="/opt/intel/compilers_and_libraries/linux/mkl/lib/intel64_lin"/>
-									<listOptionValue builtIn="false" value="/opt/intel/compilers_and_libraries_2017.0.098/linux/compiler/lib/intel64"/>
-									<listOptionValue builtIn="false" value="/opt/intel/compilers_and_libraries_2017.0.098/linux/compiler/lib/intel64_lin"/>
-									<listOptionValue builtIn="false" value="/opt/intel/compilers_and_libraries_2017.0.098/linux/tbb/lib/intel64/gcc4.4"/>
-									<listOptionValue builtIn="false" value="/opt/intel/compilers_and_libraries_2017.0.098/linux/mkl/lib/intel64"/>
 								</option>
 								<option id="gnu.cpp.link.option.libs.730344615" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="mkl_intel_lp64"/>
