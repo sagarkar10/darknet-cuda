@@ -598,10 +598,13 @@ void validate_detector_recall(char *cfgfile, char *weightfile)
         find_replace(labelpath, "JPEGImages", "labels", labelpath);
         find_replace(labelpath, ".jpg", ".txt", labelpath);
         find_replace(labelpath, ".JPEG", ".txt", labelpath);
-
+	
+	printf("labelpath: %s\n",labelpath);
+	printf("path: %s\n",path);
         int num_labels = 0;
         box_label *truth = read_boxes(labelpath, &num_labels);
-        for(k = 0; k < l.w*l.h*l.n; ++k){
+        printf("%d",l.w*l.h*l.n);
+	for(k = 0; k < l.w*l.h*l.n; ++k){
             if(probs[k][0] > thresh){
                 ++proposals;
             }
@@ -610,6 +613,7 @@ void validate_detector_recall(char *cfgfile, char *weightfile)
             ++total;
             box t = {truth[j].x, truth[j].y, truth[j].w, truth[j].h};
             float best_iou = 0;
+		printf("%d",l.w*l.h*l.n);
             for(k = 0; k < l.w*l.h*l.n; ++k){
                 float iou = box_iou(boxes[k], t);
                 if(probs[k][0] > thresh && iou > best_iou){
