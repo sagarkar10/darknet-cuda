@@ -125,7 +125,9 @@ void forward_connected_layer(connected_layer l, network_state state)
     fill_cpu(l.outputs*l.batch, 0, l.output, 1);
     int m = l.batch;
     int k = l.inputs;
+    printf("\n\n\n\n\nl.inputs: %d\n",k);
     int n = l.outputs;
+    printf("l.outputs: %d\n\n\n\n\n\n",n);
     float *a = state.input;
     float *b = l.weights;
     float *c = l.output;

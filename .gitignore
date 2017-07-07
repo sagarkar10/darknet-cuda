@@ -9,6 +9,7 @@ mnist/
 data/
 caffe/
 grasp/
+dump/
 backup/
 images/
 opencv/

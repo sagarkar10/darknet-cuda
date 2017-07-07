@@ -4,9 +4,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
+/*
 extern "C"{
 #include "mkl.h"
 }
+*/
 //cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, 
   //              m, n, k, alpha, A, lda=k, B,ldb= n, beta, C,ldc=n);
 
@@ -159,19 +161,19 @@ void gemm_cpu(int TA, int TB, int M, int N, int K, float ALPHA,
        // }
    // }
     if(!TA && !TB)
-    cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, M, N, K, ALPHA, A, lda, B, ldb, BETA, C,ldc);
+    //cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, M, N, K, ALPHA, A, lda, B, ldb, BETA, C,ldc);
 
-       // gemm_nn(M, N, K, ALPHA,A,lda, B, ldb,C,ldc);
+      gemm_nn(M, N, K, ALPHA,A,lda, B, ldb,C,ldc);
     else if(TA && !TB)
-    cblas_sgemm(CblasRowMajor, CblasTrans, CblasNoTrans, M, N, K, ALPHA, A, lda, B, ldb, BETA, C,ldc);
+    //cblas_sgemm(CblasRowMajor, CblasTrans, CblasNoTrans, M, N, K, ALPHA, A, lda, B, ldb, BETA, C,ldc);
  
-       // gemm_tn(M, N, K, ALPHA,A,lda, B, ldb,C,ldc);
+      gemm_tn(M, N, K, ALPHA,A,lda, B, ldb,C,ldc);
     else if(!TA && TB)
-     cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasTrans, M, N, K, ALPHA, A, lda, B, ldb, BETA, C,ldc);
-       // gemm_nt(M, N, K, ALPHA,A,lda, B, ldb,C,ldc);
+     //cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasTrans, M, N, K, ALPHA, A, lda, B, ldb, BETA, C,ldc);
+      gemm_nt(M, N, K, ALPHA,A,lda, B, ldb,C,ldc);
     else
-     cblas_sgemm(CblasRowMajor, CblasTrans, CblasTrans, M, N, K, ALPHA, A, lda, B, ldb, BETA, C,ldc);
-        //gemm_tt(M, N, K, ALPHA,A,lda, B, ldb,C,ldc);
+     //cblas_sgemm(CblasRowMajor, CblasTrans, CblasTrans, M, N, K, ALPHA, A, lda, B, ldb, BETA, C,ldc);
+      gemm_tt(M, N, K, ALPHA,A,lda, B, ldb,C,ldc);
 }
 
 #ifdef GPU

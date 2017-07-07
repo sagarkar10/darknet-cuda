@@ -1,6 +1,7 @@
 #include "convolutional_layer.h"
 #include "batchnorm_layer.h"
 #include "blas.h"
+#include "utils.h"
 #include <stdio.h>
 
 layer make_batchnorm_layer(int batch, int w, int h, int c)
@@ -137,6 +138,7 @@ void resize_batchnorm_layer(layer *layer, int w, int h)
 
 void forward_batchnorm_layer(layer l, network_state state)
 {
+	printf("%d\n%d\n%d\n",l.batch, l.out_c, l.out_h*l.out_w);
     if(l.type == BATCHNORM) copy_cpu(l.outputs*l.batch, state.input, 1, l.output, 1);
     if(l.type == CONNECTED){
         l.out_c = l.outputs;
@@ -159,6 +161,11 @@ void forward_batchnorm_layer(layer l, network_state state)
     }
     scale_bias(l.output, l.scales, l.batch, l.out_c, l.out_h*l.out_w);
     add_bias(l.output, l.biases, l.batch, l.out_c, l.out_h*l.out_w);
+    char filename[30];
+    sprintf(filename,"dump/out_batchnorm%d.txt",l.desc);
+	dump(l.output,l.outputs,filename);
+	sprintf(filename,"dump/in_bias%d.txt",l.desc);
+	dump(l.biases,l.n,filename);
 }
 
 void backward_batchnorm_layer(const layer l, network_state state)

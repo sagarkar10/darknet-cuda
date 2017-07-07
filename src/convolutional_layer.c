@@ -320,11 +320,50 @@ void denormalize_convolutional_layer(convolutional_layer l)
     }
 }
 
+void test_forward_convolutional_layer(convolutional_layer l, network_state state)
+{
+    int out_h = l.out_h;
+    int out_w = l.out_w;
+    int i;
+
+    fill_cpu(l.outputs*l.batch, 0, l.output, 1);
+
+    int m = l.n;
+    int k = l.size*l.size*l.c;
+    int n = out_h*out_w;
+
+
+    float *a = l.weights;
+    float *b = state.workspace;
+    float *c = l.output;
+
+    for(i = 0; i < l.batch; ++i){
+        im2col_cpu(state.input, l.c, l.h, l.w,
+                l.size, l.stride, l.pad, b);
+        gemm(0,0,m,n,k,1,a,k,b,n,1,c,n);
+        c += n*m;
+        state.input += l.c*l.h*l.w;
+    }
+
+
+    if(l.batch_normalize){
+        forward_batchnorm_layer(l, state);
+    } else {
+        add_bias(l.output, l.biases, l.batch, l.n, out_h*out_w);
+    }
+
+//    activate_array(l.output, m*n*l.batch, l.activation);
+
+}
+
+
 void test_convolutional_layer()
 {
-    convolutional_layer l = make_convolutional_layer(1, 5, 5, 3, 2, 5, 2, 1, LEAKY, 1, 0, 0, 0);
+	//convolutional_layer make_convolutional_layer(int batch, int h, int w, int c, int n, int size, int stride, int padding, ACTIVATION activation, int batch_normalize, int binary, int xnor, int adam)
+    convolutional_layer l = make_convolutional_layer(1, 5, 5, 3, 1, 3, 1, 1, LINEAR, 1, 0, 0, 0);
     l.batch_normalize = 1;
-    float data[] = {1,1,1,1,1,
+    float data[] = {
+    	1,1,1,1,1,
         1,1,1,1,1,
         1,1,1,1,1,
         1,1,1,1,1,
@@ -339,9 +378,34 @@ void test_convolutional_layer()
         3,3,3,3,3,
         3,3,3,3,3,
         3,3,3,3,3};
+    float kernel[] = {
+    			1,1,1,
+    			2,2,2,
+    			3,3,3,
+    	};
+	float bias[] = {1};
+	float scale[] = {1};
+	float rolling_mean[] = {1};
+	float rolling_variance[] = {1};
     network_state state = {0};
     state.input = data;
-    forward_convolutional_layer(l, state);
+    l.weights = kernel;
+    l.biases = bias;
+    l.scales = scale;
+    l.rolling_mean = rolling_mean;
+    l.rolling_variance = rolling_variance;
+    state.workspace = (float*)calloc(1,l.workspace_size);
+
+    test_forward_convolutional_layer(l, state);
+    printf("no of output = %d\n",l.outputs);
+    FILE* fp = fopen("dump/test/output.txt","w");
+    for (int i = 0; i < l.outputs; ++i) {
+    	printf("%f\n",l.output[i]);
+		fprintf(fp,"%f\n",l.output[i]);
+	}
+    fclose(fp);
+
+
 }
 
 void resize_convolutional_layer(convolutional_layer *l, int w, int h)
@@ -425,6 +489,10 @@ void backward_bias(float *bias_updates, float *delta, int batch, int n, int size
 
 void forward_convolutional_layer(convolutional_layer l, network_state state)
 {
+    char filename[30];
+	sprintf(filename,"dump/in_conv%d.txt", l.desc);
+	dump(state.input,l.inputs,filename);
+
     int out_h = l.out_h;
     int out_w = l.out_w;
     int i;
@@ -446,7 +514,6 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
     float *a = l.weights;
     float *b = state.workspace;
     float *c = l.output;
-
     for(i = 0; i < l.batch; ++i){
         im2col_cpu(state.input, l.c, l.h, l.w, 
                 l.size, l.stride, l.pad, b);
@@ -454,7 +521,8 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
         c += n*m;
         state.input += l.c*l.h*l.w;
     }
-
+    sprintf(filename,"dump/out_conv%d.txt",l.desc);
+    dump(l.output,l.outputs,filename);
     if(l.batch_normalize){
         forward_batchnorm_layer(l, state);
     } else {
@@ -463,6 +531,8 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
 
     activate_array(l.output, m*n*l.batch, l.activation);
     if(l.binary || l.xnor) swap_binary(&l);
+	sprintf(filename,"dump/out_act%d.txt",l.desc);
+	dump(l.output,l.outputs,filename);
 }
 
 void backward_convolutional_layer(convolutional_layer l, network_state state)

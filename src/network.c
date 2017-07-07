@@ -6,7 +6,7 @@
 #include "data.h"
 #include "utils.h"
 #include "blas.h"
-
+#include "string.h"
 #include "crop_layer.h"
 #include "connected_layer.h"
 #include "gru_layer.h"
@@ -171,16 +171,29 @@ network make_network(int n)
     return net;
 }
 
+//void dump(float d[], int size ,char* filename){
+//	FILE *fp = fopen(filename,"w");
+//	for (int i = 0; i < size; ++i) {
+//		fprintf(fp,"%f\n",d[i]);
+//	}
+//	printf("%s \t lines: %d\n",filename, size);
+//}
+
 void forward_network(network net, network_state state)
 {
     state.workspace = net.workspace;
     int i;
+    int c=-1;
     for(i = 0; i < net.n; ++i){
         state.index = i;
         layer l = net.layers[i];
         if(l.delta){
             fill_cpu(l.outputs * l.batch, 0, l.delta, 1);
         }
+        if (l.type==0)	{
+        	c++;
+        }
+		l.desc=c;
         l.forward(l, state);
         state.input = l.output;
     }
@@ -206,6 +219,11 @@ float *get_network_output(network net)
 #endif 
     int i;
     for(i = net.n-1; i > 0; --i) if(net.layers[i].type != COST) break;
+    //char filename[30];
+   // sprintf(filename,"dump/output_l%d_nw_%d.txt",i,net.layers[i].outputs);
+   // FILE *fp = fopen(filename,"w");
+    //fprintf(fp,"layer: %d\n",i);
+    //for (int j=0;j<net.layers[i].outputs;++j) printf("%f, ",net.layers[i].output[j]);
     return net.layers[i].output;
 }
 
@@ -501,6 +519,7 @@ float *network_predict(network net, float *input)
     state.net = net;
     state.index = 0;
     state.input = input;
+
     state.truth = 0;
     state.train = 0;
     state.delta = 0;

@@ -129,6 +129,7 @@ image get_network_image(network net);
 image get_network_image_layer(network net, int i);
 int get_predicted_class_network(network net);
 void print_network(network net);
+
 void visualize_network(network net);
 int resize_network(network *net, int w, int h);
 int get_network_input_size(network net);

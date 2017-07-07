@@ -11,6 +11,14 @@
 
 #include "utils.h"
 
+void dump(float d[], int size ,char* filename){
+	FILE *fp = fopen(filename,"w");
+	for (int i = 0; i < size; ++i) {
+		fprintf(fp,"%f\n",d[i]);
+	}
+	printf("%s \t lines: %d\n",filename, size);
+}
+
 int *read_map(char *filename)
 {
     int n = 0;

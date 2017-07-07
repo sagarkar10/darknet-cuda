@@ -294,6 +294,8 @@ layer parse_region(list *options, size_params params)
     char *a = option_find_str(options, "anchors", 0);
     if(a){
         int len = strlen(a);
+        printf("strlen(a):%d \n",len);
+        printf("a:%s\n",a);
         int n = 1;
         int i;
         for(i = 0; i < len; ++i){
@@ -302,6 +304,7 @@ layer parse_region(list *options, size_params params)
         for(i = 0; i < n; ++i){
             float bias = atof(a);
             l.biases[i] = bias;
+            printf("l.bias[%d] = %f\n",i,bias);
             a = strchr(a, ',')+1;
         }
     }
@@ -935,8 +938,25 @@ void transpose_matrix(float *a, int rows, int cols)
 
 void load_connected_weights(layer l, FILE *fp, int transpose)
 {
+    printf("\nTRANSPOSE: %d",transpose);
     fread(l.biases, sizeof(float), l.outputs, fp);
+    char filename[20];
+    sprintf(filename,"dump/biases_fc.txt");
+    FILE* fw = fopen(filename,"w");
+    for(int h=0; h<l.outputs; ++h){
+        
+    fprintf(fw,"%f\n",l.biases[h]);
+    }
+    fclose(fw);
+
     fread(l.weights, sizeof(float), l.outputs*l.inputs, fp);
+    sprintf(filename,"dump/weights_fc.txt");
+    fw = fopen(filename,"w");
+    for(int h=0; h<l.outputs*l.inputs; ++h){
+        
+    fprintf(fw,"%f\n",l.weights[h]);
+    }
+    fclose(fw);
     if(transpose){
         transpose_matrix(l.weights, l.inputs, l.outputs);
     }
@@ -999,6 +1019,13 @@ void load_convolutional_weights_binary(layer l, FILE *fp)
 #endif
 }
 
+//void dump(float d[], int size ,char* filename){
+//	FILE *fp = fopen(filename,"w");
+//	for (int i = 0; i < size; ++i) {
+//		fprintf(fp,"%f\n",d[i]);
+//	}
+//	printf("%s \t lines: %d\n",filename, size);
+//}
 void load_convolutional_weights(layer l, FILE *fp)
 {
     if(l.binary){
@@ -1010,10 +1037,25 @@ void load_convolutional_weights(layer l, FILE *fp)
     printf("load_convolutional_weights: l.n*l.c*l.size*l.size = %d\n", l.n*l.c*l.size*l.size);
     
     fread(l.biases, sizeof(float), l.n, fp);
+    char filename[40];
+
+    sprintf(filename,"dump/biases%d.txt",l.desc);
+    dump(l.biases,l.n,filename);
+
     if (l.batch_normalize && (!l.dontloadscales)){
-        fread(l.scales, sizeof(float), l.n, fp);
+
+    	fread(l.scales, sizeof(float), l.n, fp);
+        sprintf(filename,"dump/scales%d.txt",l.desc);
+        dump(l.scales,l.n,filename);
+
         fread(l.rolling_mean, sizeof(float), l.n, fp);
+        sprintf(filename,"dump/r_mean%d.txt",l.desc);
+		dump(l.rolling_mean,l.n,filename);
+
         fread(l.rolling_variance, sizeof(float), l.n, fp);
+        sprintf(filename,"dump/r_variance%d.txt",l.desc);
+		dump(l.rolling_variance,l.n,filename);
+
         if(0){
             int i;
             for(i = 0; i < l.n; ++i){
@@ -1030,7 +1072,15 @@ void load_convolutional_weights(layer l, FILE *fp)
             fill_cpu(l.n, 0, l.rolling_variance, 1);
         }
     }
+    else{
+    	if(l.type!=CONVOLUTIONAL && l.size!=1)
+    		fseek(fp,3*l.n*sizeof(float),SEEK_CUR);
+    }
     fread(l.weights, sizeof(float), num, fp);
+
+    //char filename[20];
+    sprintf(filename,"dump/weights%d.txt",l.desc);
+    dump(l.weights,num,filename);
     if(l.adam){
         fread(l.m, sizeof(float), num, fp);
         fread(l.v, sizeof(float), num, fp);
@@ -1072,6 +1122,7 @@ void load_weights_upto(network *net, char *filename, int start, int cutoff)
     printf("mj = %d, mn = %d, *(net->seen) = %d\n", major, minor, net->seen ? *(net->seen) : 0);
 
     int i;
+    int counter=0;
     for(i = start; i < net->n && i < cutoff; ++i){
         layer l = net->layers[i];
         if (l.dontload) continue;

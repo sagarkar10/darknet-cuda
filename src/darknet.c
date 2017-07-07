@@ -7,6 +7,8 @@
 #include "cuda.h"
 #include "blas.h"
 #include "connected_layer.h"
+#include "convolutional_layer.h"
+#include "maxpool_layer.h"
 
 #ifdef OPENCV
 #include "opencv2/highgui/highgui_c.h"
@@ -33,7 +35,7 @@ extern void run_go(int argc, char **argv);
 extern void run_art(int argc, char **argv);
 extern void run_super(int argc, char **argv);
 extern void run_lsd(int argc, char **argv);
-
+extern void test_convolutional_layer();
 void average(int argc, char *argv[])
 {
     char *cfgfile = argv[2];
@@ -385,7 +387,6 @@ int main(int argc, char **argv)
         cuda_set_device(gpu_index);
     }
 #endif
-
     if (0 == strcmp(argv[1], "average")){
         average(argc, argv);
     } else if (0 == strcmp(argv[1], "yolo")){

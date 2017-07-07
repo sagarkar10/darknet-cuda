@@ -13,10 +13,10 @@
 #
 # 
 
-GPU=1
-CUDNN=1
+GPU=0
+CUDNN=0
 OPENCV=1
-DEBUG=0
+DEBUG=1
 CUDA_MEM_DEBUG=0
 
 ARCH= -gencode arch=compute_50,code=[sm_50,compute_50] 
@@ -102,7 +102,7 @@ $(EXEC): obj clean $(OBJS)
 $(OBJDIR)%.o: %.c $(DEPS)
 	$(CC) $(COMMON) $(CFLAGS) -c $< -o $@
 
-$(EXEC_CPP): obj-cpp clean-cpp $(OBJS_CPP)
+$(EXEC_CPP): obj-cpp $(OBJS_CPP)
 	$(CC_CPP) $(COMMON) $(CFLAGS) $(OBJS_CPP) -o $@ $(LDFLAGS)
 $(SHARED_CPP): obj-shared-cpp clean-cpp $(OBJS_CPP_SHARED)
 	$(CC_CPP) $(COMMON) $(CFLAGS) $(OBJS_CPP_SHARED) -o lib$@.so $(LDFLAGS) -shared	

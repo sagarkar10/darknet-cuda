@@ -99,7 +99,7 @@ struct layer{
     int noadjust;
     int reorg;
     int log;
-
+    int desc; // only for dumping purpose
     int adam;
     float B1;
     float B2;

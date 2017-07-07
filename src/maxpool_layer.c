@@ -1,6 +1,7 @@
 #include "maxpool_layer.h"
 #include "cuda.h"
 #include <stdio.h>
+#include "utils.h"
 
 image get_maxpool_image(maxpool_layer l)
 {
@@ -79,6 +80,11 @@ void resize_maxpool_layer(maxpool_layer *l, int w, int h)
 
 void forward_maxpool_layer(const maxpool_layer l, network_state state)
 {
+
+    char filename[30];
+	sprintf(filename,"dump/in_pool%d.txt", l.desc);
+	dump(state.input,l.inputs,filename);
+
     int b,i,j,k,m,n;
     int w_offset = -l.pad;
     int h_offset = -l.pad;
@@ -112,7 +118,37 @@ void forward_maxpool_layer(const maxpool_layer l, network_state state)
             }
         }
     }
+    sprintf(filename,"dump/out_pool%d.txt",l.desc);
+	dump(l.output,l.outputs,filename);
 }
+
+void test_maxpool_layer()
+{
+	maxpool_layer l = make_maxpool_layer(1, 416, 416, 13, 2, 2, 1);
+	network_state state = {0};
+	int size = 416*416*13;
+	float data[size];
+//			   = {
+//			-9, -8, -248, -243,
+//			1, 5, -155, -155,
+//			9, 15, -65, -69,
+//			7, 10, 10, 7};
+
+	FILE* fp = fopen("new.txt","w");
+	int i=0;
+	while(i!=size-1)
+//		fread(&data[i++],1, sizeof(float),fgp);
+	fclose(fp);
+	state.input = data;
+	forward_maxpool_layer(l, state);
+	printf("no of output = %d\n",l.outputs);
+	fp = fopen("dump/test/pool.txt","w");
+	for (int i = 0; i < l.outputs; ++i) {
+		printf("%f\n",l.output[i]);
+	}
+	fclose(fp);
+}
+
 
 void backward_maxpool_layer(const maxpool_layer l, network_state state)
 {

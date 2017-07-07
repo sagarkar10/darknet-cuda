@@ -114,11 +114,12 @@ void variance_cpu(float *x, float *mean, int batch, int filters, int spatial, fl
 
 void normalize_cpu(float *x, float *mean, float *variance, int batch, int filters, int spatial)
 {
-    int b, f, i;
+	int index =0;
+    int b, f, i=0;
     for(b = 0; b < batch; ++b){
         for(f = 0; f < filters; ++f){
-            for(i = 0; i < spatial; ++i){
-                int index = b*filters*spatial + f*spatial + i;
+        	for(i = 0; i < spatial; ++i){
+                index = b*filters*spatial + f*spatial + i;
                 x[index] = (x[index] - mean[f])/(sqrt(variance[f]) + .000001f);
             }
         }

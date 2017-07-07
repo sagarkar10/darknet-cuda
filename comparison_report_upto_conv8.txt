@@ -1,0 +1,224 @@
+Out_Conv Comparison of Layer:  0
+darknet:  2768896 arm:  2768896
+DARKNET stats: max: 3.720192 min: -3.918050 mean: -0.024726, stdev: 0.335416, variance: 0.112504
+ARM stats: max: 3.721805 min: -3.920375 mean: -0.024603, stdev: 0.335445, variance: 0.112523
+DARKNET/ARM ratio: max: 0.999567 min: 0.999407 mean: 1.004992, stdev: 0.999916, variance: 0.999832
+rmsd: 2.794098531956127
+rmsd/n:  1.009102014649928e-06
+Out_Conv Comparison of Layer:  1
+darknet:  1384448 arm:  1384448
+DARKNET stats: max: 44.974754 min: -74.738663 mean: -2.723093, stdev: 5.720900, variance: 32.728699
+ARM stats: max: 44.952164 min: -74.758743 mean: -2.724158, stdev: 5.721030, variance: 32.730183
+DARKNET/ARM ratio: max: 1.000503 min: 0.999731 mean: 0.999609, stdev: 0.999977, variance: 0.999955
+rmsd: 39.633554047756796
+rmsd/n:  2.8627694249084686e-05
+Out_Conv Comparison of Layer:  2
+darknet:  692224 arm:  692224
+DARKNET stats: max: 15.446488 min: -22.385752 mean: -1.223554, stdev: 2.013362, variance: 4.053625
+ARM stats: max: 15.433412 min: -22.398056 mean: -1.223181, stdev: 2.012948, variance: 4.051960
+DARKNET/ARM ratio: max: 1.000847 min: 0.999451 mean: 1.000305, stdev: 1.000205, variance: 1.000411
+rmsd: 14.125360715718022
+rmsd/n:  2.0405765641928078e-05
+Out_Conv Comparison of Layer:  3
+darknet:  346112 arm:  346112
+DARKNET stats: max: 12.875838 min: -17.359957 mean: -1.335551, stdev: 2.188660, variance: 4.790230
+ARM stats: max: 12.903529 min: -17.332666 mean: -1.335726, stdev: 2.188960, variance: 4.791548
+DARKNET/ARM ratio: max: 0.997854 min: 1.001575 mean: 0.999869, stdev: 0.999863, variance: 0.999725
+rmsd: 10.898001320342305
+rmsd/n:  3.1486921344369175e-05
+Out_Conv Comparison of Layer:  4
+darknet:  173056 arm:  173056
+DARKNET stats: max: 7.521061 min: -13.007201 mean: -1.162265, stdev: 1.283840, variance: 1.648245
+ARM stats: max: 7.547214 min: -13.086451 mean: -1.162238, stdev: 1.283931, variance: 1.648478
+DARKNET/ARM ratio: max: 0.996535 min: 0.993944 mean: 1.000023, stdev: 0.999929, variance: 0.999859
+rmsd: 4.651954458648698
+rmsd/n:  2.6881208733870526e-05
+Out_Conv Comparison of Layer:  5
+darknet:  86528 arm:  86528
+DARKNET stats: max: 3.782836 min: -4.416234 mean: -0.497377, stdev: 0.600812, variance: 0.360976
+ARM stats: max: 3.799469 min: -4.408797 mean: -0.497130, stdev: 0.600771, variance: 0.360926
+DARKNET/ARM ratio: max: 0.995622 min: 1.001687 mean: 1.000497, stdev: 1.000069, variance: 1.000138
+rmsd: 1.6320908306332012
+rmsd/n:  1.886199647089036e-05
+Out_Conv Comparison of Layer:  6
+darknet:  173056 arm:  173056
+DARKNET stats: max: 1.242483 min: -2.999474 mean: -0.044711, stdev: 0.166125, variance: 0.027598
+ARM stats: max: 1.243132 min: -2.977815 mean: -0.048108, stdev: 0.172614, variance: 0.029795
+DARKNET/ARM ratio: max: 0.999478 min: 1.007273 mean: 0.929389, stdev: 0.962413, variance: 0.926239
+rmsd: 15.483996157307248
+rmsd/n:  8.947390530988378e-05
+Out_Conv Comparison of Layer:  7
+darknet:  173056 arm:  173056
+DARKNET stats: max: 1.694067 min: -1.562266 mean: -0.091061, stdev: 0.240758, variance: 0.057964
+ARM stats: max: 2.014263 min: -1.838045 mean: -0.104224, stdev: 0.261917, variance: 0.068601
+DARKNET/ARM ratio: max: 0.841036 min: 0.849961 mean: 0.873709, stdev: 0.919212, variance: 0.844951
+rmsd: 39.504898066368675
+rmsd/n:  0.00022827811844933823
+Out_Conv Comparison of Layer:  8
+darknet:  21125 arm:  21125
+DARKNET stats: max: 2.017274 min: -5.252210 mean: -0.198430, stdev: 0.991641, variance: 0.983352
+ARM stats: max: 2.082468 min: -5.447710 mean: -0.196567, stdev: 0.982653, variance: 0.965606
+DARKNET/ARM ratio: max: 0.968694 min: 0.964113 mean: 1.009481, stdev: 1.009147, variance: 1.018378
+rmsd: 63.127405403785474
+rmsd/n:  0.002988279545741324
+Out_Batchnorm Comparison of Layer:  0
+darknet:  2768896 arm:  2768896
+DARKNET stats: max: 48.627510 min: -50.809399 mean: -1.295232, stdev: 4.730809, variance: 22.380552
+ARM stats: max: 48.648159 min: -50.826668 mean: -1.295036, stdev: 4.731789, variance: 22.389825
+DARKNET/ARM ratio: max: 0.999576 min: 0.999660 mean: 1.000152, stdev: 0.999793, variance: 0.999586
+rmsd: 51.697245583507325
+rmsd/n:  1.8670706875053208e-05
+Out_Batchnorm Comparison of Layer:  1
+darknet:  1384448 arm:  1384448
+DARKNET stats: max: 21.369148 min: -54.435196 mean: -1.293600, stdev: 4.249665, variance: 18.059649
+ARM stats: max: 21.350531 min: -54.377033 mean: -1.294191, stdev: 4.249301, variance: 18.056563
+DARKNET/ARM ratio: max: 1.000872 min: 1.001070 mean: 0.999543, stdev: 1.000085, variance: 1.000171
+rmsd: 30.165709428515115
+rmsd/n:  2.178897974392329e-05
+Out_Batchnorm Comparison of Layer:  2
+darknet:  692224 arm:  692224
+DARKNET stats: max: 19.230543 min: -33.535038 mean: -0.653691, stdev: 2.733516, variance: 7.472108
+ARM stats: max: 19.230543 min: -33.617340 mean: -0.653184, stdev: 2.733672, variance: 7.472960
+DARKNET/ARM ratio: max: 1.000000 min: 0.997552 mean: 1.000775, stdev: 0.999943, variance: 0.999886
+rmsd: 23.091929766948457
+rmsd/n:  3.335904240094024e-05
+Out_Batchnorm Comparison of Layer:  3
+darknet:  346112 arm:  346112
+DARKNET stats: max: 14.645055 min: -20.333300 mean: -1.634448, stdev: 2.276086, variance: 5.180569
+ARM stats: max: 14.676780 min: -20.375916 mean: -1.634687, stdev: 2.276324, variance: 5.181652
+DARKNET/ARM ratio: max: 0.997838 min: 0.997909 mean: 0.999854, stdev: 0.999895, variance: 0.999791
+rmsd: 14.122505143183712
+rmsd/n:  4.080328085470516e-05
+Out_Batchnorm Comparison of Layer:  4
+darknet:  173056 arm:  173056
+DARKNET stats: max: 6.819336 min: -13.665405 mean: -2.010229, stdev: 1.717832, variance: 2.950946
+ARM stats: max: 6.842079 min: -13.721642 mean: -2.010130, stdev: 1.717706, variance: 2.950513
+DARKNET/ARM ratio: max: 0.996676 min: 0.995902 mean: 1.000049, stdev: 1.000073, variance: 1.000147
+rmsd: 6.696016733531972
+rmsd/n:  3.869277420911134e-05
+Out_Batchnorm Comparison of Layer:  5
+darknet:  86528 arm:  86528
+DARKNET stats: max: 3.440806 min: -8.592211 mean: -1.938425, stdev: 1.195216, variance: 1.428542
+ARM stats: max: 3.466753 min: -8.588957 mean: -1.938028, stdev: 1.195294, variance: 1.428729
+DARKNET/ARM ratio: max: 0.992515 min: 1.000379 mean: 1.000204, stdev: 0.999935, variance: 0.999869
+rmsd: 2.71038761830296
+rmsd/n:  3.1323821402354843e-05
+Out_Batchnorm Comparison of Layer:  6
+darknet:  173056 arm:  173056
+DARKNET stats: max: 9.103226 min: -14.046994 mean: -2.565944, stdev: 1.734783, variance: 3.009471
+ARM stats: max: 11.201426 min: -14.080511 mean: -2.598125, stdev: 1.774951, variance: 3.150450
+DARKNET/ARM ratio: max: 0.812685 min: 0.997620 mean: 0.987614, stdev: 0.977369, variance: 0.955251
+rmsd: 147.87371503356164
+rmsd/n:  0.0008544847623518494
+Out_Batchnorm Comparison of Layer:  7
+darknet:  173056 arm:  173056
+DARKNET stats: max: 1.071389 min: -0.842592 mean: 0.253585, stdev: 0.225983, variance: 0.051069
+ARM stats: max: 1.075330 min: -0.842396 mean: 0.246461, stdev: 0.227902, variance: 0.051939
+DARKNET/ARM ratio: max: 0.996335 min: 1.000233 mean: 1.028904, stdev: 0.991582, variance: 0.983235
+rmsd: 21.14392592767217
+rmsd/n:  0.0001221796755251027
+Out_Act Comparison of Layer:  0
+darknet:  2768896 arm:  2768896
+DARKNET stats: max: 48.627510 min: -0.000000 mean: 0.956886, stdev: 2.212321, variance: 4.894362
+ARM stats: max: 48.648159 min: -0.000000 mean: 0.957240, stdev: 2.212386, variance: 4.894652
+DARKNET/ARM ratio: max: 0.999576 min: nan mean: 0.999631, stdev: 0.999970, variance: 0.999941
+rmsd: 41.52794446190349
+rmsd/n:  1.4998015260198825e-05
+Out_Act Comparison of Layer:  1
+darknet:  1384448 arm:  1384448
+DARKNET stats: max: 21.369148 min: -0.000000 mean: 0.516136, stdev: 0.919378, variance: 0.845256
+ARM stats: max: 21.350531 min: -0.000000 mean: 0.515609, stdev: 0.918671, variance: 0.843957
+DARKNET/ARM ratio: max: 1.000872 min: nan mean: 1.001023, stdev: 1.000769, variance: 1.001539
+rmsd: 17.293972447204904
+rmsd/n:  1.2491601307672736e-05
+Out_Act Comparison of Layer:  2
+darknet:  692224 arm:  692224
+DARKNET stats: max: 19.230543 min: -0.000000 mean: 0.634735, stdev: 1.047787, variance: 1.097858
+ARM stats: max: 19.230543 min: -0.000000 mean: 0.635037, stdev: 1.047981, variance: 1.098265
+DARKNET/ARM ratio: max: 1.000000 min: nan mean: 0.999525, stdev: 0.999815, variance: 0.999630
+rmsd: 13.431573040491084
+rmsd/n:  1.940350672685588e-05
+Out_Act Comparison of Layer:  3
+darknet:  346112 arm:  346112
+DARKNET stats: max: 14.645055 min: -0.000000 mean: 0.227643, stdev: 0.646048, variance: 0.417378
+ARM stats: max: 14.676780 min: -0.000000 mean: 0.227644, stdev: 0.646138, variance: 0.417494
+DARKNET/ARM ratio: max: 0.997838 min: nan mean: 0.999997, stdev: 0.999862, variance: 0.999724
+rmsd: 5.497799207425729
+rmsd/n:  1.5884451297342272e-05
+Out_Act Comparison of Layer:  4
+darknet:  173056 arm:  173056
+DARKNET stats: max: 6.819336 min: -0.000000 mean: 0.074313, stdev: 0.314393, variance: 0.098843
+ARM stats: max: 6.842079 min: -0.000000 mean: 0.074331, stdev: 0.314445, variance: 0.098876
+DARKNET/ARM ratio: max: 0.996676 min: nan mean: 0.999761, stdev: 0.999833, variance: 0.999666
+rmsd: 1.8365826926411648
+rmsd/n:  1.0612649620014127e-05
+Out_Act Comparison of Layer:  5
+darknet:  86528 arm:  86528
+DARKNET stats: max: 3.440806 min: -0.000000 mean: 0.012325, stdev: 0.101973, variance: 0.010399
+ARM stats: max: 3.466753 min: -0.000000 mean: 0.012343, stdev: 0.102049, variance: 0.010414
+DARKNET/ARM ratio: max: 0.992515 min: nan mean: 0.998603, stdev: 0.999253, variance: 0.998506
+rmsd: 0.35325474221728403
+rmsd/n:  4.082548333687177e-06
+Out_Act Comparison of Layer:  6
+darknet:  173056 arm:  173056
+DARKNET stats: max: 9.103226 min: -0.000000 mean: 0.041806, stdev: 0.247414, variance: 0.061214
+ARM stats: max: 11.201426 min: -0.000000 mean: 0.046568, stdev: 0.268113, variance: 0.071884
+DARKNET/ARM ratio: max: 0.812685 min: nan mean: 0.897744, stdev: 0.922800, variance: 0.851560
+rmsd: 46.21276846118323
+rmsd/n:  0.00026703938875961093
+Out_Act Comparison of Layer:  7
+darknet:  173056 arm:  173056
+DARKNET stats: max: 1.071389 min: -0.000000 mean: 0.270841, stdev: 0.193244, variance: 0.037343
+ARM stats: max: 1.075330 min: -0.000000 mean: 0.265019, stdev: 0.193628, variance: 0.037492
+DARKNET/ARM ratio: max: 0.996335 min: nan mean: 1.021969, stdev: 0.998015, variance: 0.996035
+rmsd: 18.81847870187368
+rmsd/n:  0.00010874213377099714
+Out_Act Comparison of Layer:  8
+darknet:  21125 arm:  21125
+DARKNET stats: max: 2.068558 min: -0.000000 mean: 0.201360, stdev: 0.335798, variance: 0.112761
+ARM stats: max: 2.082468 min: -0.000000 mean: 0.183675, stdev: 0.324290, variance: 0.105164
+DARKNET/ARM ratio: max: 0.993320 min: nan mean: 1.096283, stdev: 1.035489, variance: 1.072238
+rmsd: 26.118213690745907
+rmsd/n:  0.0012363651451240665
+Out_Pool Comparison of Layer:  0
+darknet:  692224 arm:  692224
+DARKNET stats: max: 48.627510 min: -0.000000 mean: 1.415910, stdev: 3.070851, variance: 9.430125
+ARM stats: max: 48.648159 min: -0.000000 mean: 1.416229, stdev: 3.070871, variance: 9.430249
+DARKNET/ARM ratio: max: 0.999576 min: nan mean: 0.999775, stdev: 0.999993, variance: 0.999987
+rmsd: 22.422091162345495
+rmsd/n:  3.239138077030773e-05
+Out_Pool Comparison of Layer:  1
+darknet:  346112 arm:  346112
+DARKNET stats: max: 21.369148 min: -0.000000 mean: 0.775258, stdev: 1.195359, variance: 1.428882
+ARM stats: max: 21.350531 min: -0.000000 mean: 0.774669, stdev: 1.194858, variance: 1.427685
+DARKNET/ARM ratio: max: 1.000872 min: nan mean: 1.000761, stdev: 1.000419, variance: 1.000838
+rmsd: 10.785037596203372
+rmsd/n:  3.1160542241249575e-05
+Out_Pool Comparison of Layer:  2
+darknet:  173056 arm:  173056
+DARKNET stats: max: 19.230543 min: -0.000000 mean: 0.981678, stdev: 1.311872, variance: 1.721009
+ARM stats: max: 19.230543 min: -0.000000 mean: 0.982035, stdev: 1.312156, variance: 1.721753
+DARKNET/ARM ratio: max: 1.000000 min: nan mean: 0.999637, stdev: 0.999784, variance: 0.999568
+rmsd: 8.34416335090672
+rmsd/n:  4.821655042822393e-05
+Out_Pool Comparison of Layer:  3
+darknet:  86528 arm:  86528
+DARKNET stats: max: 14.645055 min: -0.000000 mean: 0.444963, stdev: 0.912967, variance: 0.833509
+ARM stats: max: 14.676780 min: -0.000000 mean: 0.445043, stdev: 0.913142, variance: 0.833828
+DARKNET/ARM ratio: max: 0.997838 min: nan mean: 0.999821, stdev: 0.999809, variance: 0.999618
+rmsd: 3.828454706733674
+rmsd/n:  4.42452698170959e-05
+Out_Pool Comparison of Layer:  4
+darknet:  43264 arm:  43264
+DARKNET stats: max: 6.819336 min: -0.000000 mean: 0.176145, stdev: 0.488062, variance: 0.238205
+ARM stats: max: 6.842079 min: -0.000000 mean: 0.176172, stdev: 0.488100, variance: 0.238242
+DARKNET/ARM ratio: max: 0.996676 min: nan mean: 0.999842, stdev: 0.999922, variance: 0.999843
+rmsd: 1.4304147575207091
+rmsd/n:  3.30624712814513e-05
+Out_Pool Comparison of Layer:  5
+darknet:  86528 arm:  86528
+DARKNET stats: max: 3.440806 min: -0.000000 mean: 0.027646, stdev: 0.152579, variance: 0.023280
+ARM stats: max: 3.466753 min: -0.000000 mean: 0.032475, stdev: 0.166104, variance: 0.027591
+DARKNET/ARM ratio: max: 0.992515 min: nan mean: 0.851284, stdev: 0.918573, variance: 0.843777
+rmsd: 17.956422069391763
+rmsd/n:  0.0002075215198478153

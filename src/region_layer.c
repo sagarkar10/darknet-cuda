@@ -146,10 +146,8 @@ int entry_index(layer l, int batch, int location, int entry)
 void softmax_tree(float *input, int batch, int inputs, float temp, tree *hierarchy, float *output);
 void forward_region_layer(const layer l, network_state state)
 {
-	printf("i am HERE help me\n");
     int i,j,b,t,n;
     memcpy(l.output, state.input, l.outputs*l.batch*sizeof(float));
-
 #ifndef GPU
     for (b = 0; b < l.batch; ++b){
         for(n = 0; n < l.n; ++n){
@@ -159,6 +157,7 @@ void forward_region_layer(const layer l, network_state state)
             activate_array(l.output + index,   l.w*l.h, LOGISTIC);
         }
     }
+    dump(l.output,l.outputs,"dump/before_softmax.txt");
     if (l.softmax_tree){
         int i;
         int count = 5;
@@ -174,6 +173,7 @@ void forward_region_layer(const layer l, network_state state)
 #endif
 
     memset(l.delta, 0, l.outputs * l.batch * sizeof(float));
+    dump(l.output,l.outputs,"dump/out_region.txt");
     if(!state.train) return;
     float avg_iou = 0;
     float recall = 0;
@@ -260,13 +260,10 @@ void forward_region_layer(const layer l, network_state state)
             int best_n = 0;
             i = (truth.x * l.w);
             j = (truth.y * l.h);
-	    //comment it
-	printf("i am HERE help me\n");
             printf("%d %f %d %f\n", i, truth.x*l.w, j, truth.y*l.h);
             box truth_shift = truth;
             truth_shift.x = 0;
             truth_shift.y = 0;
-	    //comment it
             printf("index %d %d\n",i, j);
             for(n = 0; n < l.n; ++n){
                 int box_index = entry_index(l, b, n*l.w*l.h + j*l.w + i, 0);
@@ -275,7 +272,6 @@ void forward_region_layer(const layer l, network_state state)
                     pred.w = l.biases[2*n]/l.w;
                     pred.h = l.biases[2*n+1]/l.h;
                 }
-	    //comment it
                 printf("pred: (%f, %f) %f x %f\n", pred.x, pred.y, pred.w, pred.h);
                 pred.x = 0;
                 pred.y = 0;
@@ -285,7 +281,6 @@ void forward_region_layer(const layer l, network_state state)
                     best_n = n;
                 }
             }
-	//comment it
             printf("%d %f (%f, %f) %f x %f\n", best_n, best_iou, truth.x, truth.y, truth.w, truth.h);
 
             int box_index = entry_index(l, b, best_n*l.w*l.h + j*l.w + i, 0);
@@ -310,9 +305,7 @@ void forward_region_layer(const layer l, network_state state)
             ++class_count;
         }
     }
-    //printf("\n");
     *(l.cost) = pow(mag_array(l.delta, l.outputs * l.batch), 2);
-	printf("i am HERE help me main\n");
     printf("Region Avg IOU: %f, Class: %f, Obj: %f, No Obj: %f, Avg Recall: %f,  count: %d\n", avg_iou/count, avg_cat/class_count, avg_obj/count, avg_anyobj/(l.w*l.h*l.n*l.batch), recall/count, count);
 }
 
