@@ -19,7 +19,7 @@ OPENCV=1
 DEBUG=1
 CUDA_MEM_DEBUG=0
 
-ARCH= -gencode arch=compute_50,code=[sm_50,compute_50] 
+ARCH= -gencode arch=compute_52,code=[sm_52,compute_52] 
 
 # This is what I use, uncomment if you know your arch and want to specify
 # ARCH=  -gencode arch=compute_52,code=compute_52
